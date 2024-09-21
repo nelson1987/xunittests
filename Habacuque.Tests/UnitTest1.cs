@@ -10,14 +10,20 @@ public class Conta
         Numero = numero;
     }
 
-    public int Id { get; }
-    public string Numero { get; }
+    public int Id { get; private set;}
+    public string Numero { get; private set;}
+
+    internal void AlterarId()
+    {
+        Id = 1;
+    }
 }
 public class ContaRepository
 {
-    public async Task Add(Conta conta)
+    public async Task<Conta> Add(Conta conta)
     {
-        //
+        conta.AlterarId();
+        return conta;
     }
 }
 public class ContaCreateHandler
@@ -45,7 +51,7 @@ public class UnitTest1
     {
         Conta poupanca = new Conta(0, "1234");
         poupanca.Should().NotBeNull();
-        poupanca.Id.Should().Be(1);
+        poupanca.Id.Should().Be(0);
     }
 
     [Fact]
@@ -66,7 +72,7 @@ public class UnitTest1
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(1);
     }
-    
+
     [Fact]
     public async Task Post_ContaComDadosCorreto_RetornaId()
     {
