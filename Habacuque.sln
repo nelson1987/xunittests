@@ -5,6 +5,14 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Habacuque.Tests", "Habacuque.Tests\Habacuque.Tests.csproj", "{80CBF465-4577-4114-8D63-524C580FA00D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habacuque.Domain", "Habacuque.Domain\Habacuque.Domain.csproj", "{B90C171C-6A53-4615-8FBA-94BD91C4FCEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habacuque.Infra", "Habacuque.Infra\Habacuque.Infra.csproj", "{C33EEDDD-6B61-430F-9FF5-BFC888ED5CF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habacuque.Application", "Habacuque.Application\Habacuque.Application.csproj", "{B163617B-23E4-469C-84B9-D0B3188C89FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Habacuque.Api", "Habacuque.Api\Habacuque.Api.csproj", "{04153D13-3F1E-4B27-92E9-E6E5BA87F7D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{80CBF465-4577-4114-8D63-524C580FA00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80CBF465-4577-4114-8D63-524C580FA00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80CBF465-4577-4114-8D63-524C580FA00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B90C171C-6A53-4615-8FBA-94BD91C4FCEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B90C171C-6A53-4615-8FBA-94BD91C4FCEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B90C171C-6A53-4615-8FBA-94BD91C4FCEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B90C171C-6A53-4615-8FBA-94BD91C4FCEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33EEDDD-6B61-430F-9FF5-BFC888ED5CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33EEDDD-6B61-430F-9FF5-BFC888ED5CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33EEDDD-6B61-430F-9FF5-BFC888ED5CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33EEDDD-6B61-430F-9FF5-BFC888ED5CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B163617B-23E4-469C-84B9-D0B3188C89FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B163617B-23E4-469C-84B9-D0B3188C89FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B163617B-23E4-469C-84B9-D0B3188C89FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B163617B-23E4-469C-84B9-D0B3188C89FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04153D13-3F1E-4B27-92E9-E6E5BA87F7D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04153D13-3F1E-4B27-92E9-E6E5BA87F7D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04153D13-3F1E-4B27-92E9-E6E5BA87F7D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04153D13-3F1E-4B27-92E9-E6E5BA87F7D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

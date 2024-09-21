@@ -21,4 +21,11 @@
     <Using Include="Xunit" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Habacuque.Domain\Habacuque.Domain.csproj" />
+    <ProjectReference Include="..\Habacuque.Infra\Habacuque.Infra.csproj" />
+    <ProjectReference Include="..\Habacuque.Application\Habacuque.Application.csproj" />
+    <ProjectReference Include="..\Habacuque.Api\Habacuque.Api.csproj" />
+  </ItemGroup>
+
 </Project>
