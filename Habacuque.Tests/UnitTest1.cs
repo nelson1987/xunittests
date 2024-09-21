@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 using FluentAssertions;
 
 namespace Habacuque.Tests;
@@ -10,8 +9,8 @@ public class Conta
         Numero = numero;
     }
 
-    public int Id { get; private set;}
-    public string Numero { get; private set;}
+    public int Id { get; private set; }
+    public string Numero { get; private set; }
 
     internal void AlterarId()
     {
@@ -46,42 +45,15 @@ public class ContaController
 }
 public class UnitTest1
 {
-    [Fact(DisplayName ="Teste inicial de Adicao de Conta")]
+    [Fact(DisplayName = "Teste inicial de Adicao de Conta")]
     public async Task Post_AddConta()
     {
         Conta poupanca = new Conta(0, "1234");
+
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(0);
     }
 
-    [Fact]
-    public  async Task Add_ContaComDadosCorreto_RetornaId()
-    {
-        Conta poupanca = new Conta(0, "1234");
-        ContaRepository contaRepository = new ContaRepository();
-        await contaRepository.Add(poupanca);
-        poupanca.Should().NotBeNull();
-        poupanca.Id.Should().Be(1);
-    }
-
-    [Fact]
-    public async Task Handle_ContaComDadosCorreto_RetornaId()
-    {
-        ContaCreateHandler handler = new ContaCreateHandler();
-        Conta poupanca = await handler.Handle();
-        poupanca.Should().NotBeNull();
-        poupanca.Id.Should().Be(1);
-    }
-
-    [Fact]
-    public async Task Post_ContaComDadosCorreto_RetornaId()
-    {
-        ContaController controller = new();
-        Conta poupanca = await controller.Post();
-        poupanca.Should().NotBeNull();
-        poupanca.Id.Should().Be(1);
-    }
-    
     [Fact]
     public void Get_FindConta()
     {
@@ -89,21 +61,55 @@ public class UnitTest1
         // Conta poupanca = 
         // poupanca.Should().NotBeNull();
     }
-    
+
     [Fact]
     public void Get_FindSaldo()
     {
 
     }
-    
+
     [Fact]
     public void Post_AddTransferencia()
     {
 
     }
-    
+
 }
 //Add Conta
 //Get Conta
 //Get Saldo
 //Create Transferencia
+public class ContaRepositoryUnitTest
+{
+    [Fact]
+    public async Task Add_ContaComDadosCorreto_RetornaId()
+    {
+        Conta poupanca = new Conta(0, "1234");
+
+        poupanca = await new ContaRepository().Add(poupanca);
+        
+        poupanca.Should().NotBeNull();
+        poupanca.Id.Should().Be(1);
+    }
+}
+public class ContaCreateHandlerUnitTest
+{
+    [Fact]
+    public async Task Handle_ContaComDadosCorreto_RetornaId()
+    {
+        Conta poupanca = await new ContaCreateHandler().Handle();
+        
+        poupanca.Should().NotBeNull();
+        poupanca.Id.Should().Be(1);
+    }
+}
+public class ContaControllerUnitTest
+{
+    [Fact]
+    public async Task Post_ContaComDadosCorreto_RetornaId()
+    {
+        Conta poupanca = await new ContaController().Post();
+        poupanca.Should().NotBeNull();
+        poupanca.Id.Should().Be(1);
+    }
+}
