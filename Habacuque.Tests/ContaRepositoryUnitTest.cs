@@ -16,4 +16,26 @@ public class ContaRepositoryUnitTest
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(1);
     }
+
+    [Fact]
+    public async Task Update_ContaComDadosCorreto_RetornaNumero()
+    {
+        Conta poupanca = new Conta(1, "12345");
+
+        poupanca = await new ContaRepository().Update(poupanca);
+        
+        poupanca.Should().NotBeNull();
+        poupanca.Numero.Should().Be("12345");
+    }
+    
+    [Fact]
+    public async Task Find_ContaComDadosCorreto_RetornaNumero()
+    {
+        Conta poupanca = new Conta(1, "1234");
+
+        poupanca = await new ContaRepository().Find(poupanca);
+        
+        poupanca.Should().NotBeNull();
+        poupanca.Id.Should().Be(1);
+    }
 }

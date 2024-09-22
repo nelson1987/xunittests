@@ -8,8 +8,17 @@ public class ContaCreateHandler
     public async Task<Conta> Handle()
     {
         Conta poupanca = new Conta(0, "1234");
-        ContaRepository contaRepository = new ContaRepository();
-        await contaRepository.Add(poupanca);
+        await new ContaRepository().Add(poupanca);
+        return poupanca;
+    }
+}
+
+public class ContaUpdateHandler
+{
+    public async Task<Conta> Handle()
+    {
+        Conta poupanca = new Conta(0, "1234");
+        await new ContaRepository().Update(poupanca);
         return poupanca;
     }
 }

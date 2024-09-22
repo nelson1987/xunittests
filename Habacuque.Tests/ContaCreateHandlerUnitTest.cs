@@ -15,3 +15,15 @@ public class ContaCreateHandlerUnitTest
         poupanca.Id.Should().Be(1);
     }
 }
+
+public class ContaUpdateHandlerUnitTest
+{
+    [Fact]
+    public async Task Handle_ContaComDadosCorreto_RetornaId()
+    {
+        Conta poupanca = await new ContaUpdateHandler().Handle();
+        
+        poupanca.Should().NotBeNull();
+        poupanca.Id.Should().Be(0);
+    }
+}

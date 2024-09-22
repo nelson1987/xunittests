@@ -9,4 +9,14 @@ public class ContaRepository
         conta.AlterarId();
         return conta;
     }
+
+    public async Task<Conta> Find(Conta conta)
+    {
+        return conta;
+    }
+
+    public async Task<Conta> Update(Conta conta)
+    {
+        return conta;
+    }
 }
