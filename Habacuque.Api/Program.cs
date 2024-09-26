@@ -1,4 +1,5 @@
 using Habacuque.Application;
+using Habacuque.Application.Features.Contas;
 using Habacuque.Domain;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,7 @@ app.UseHttpsRedirection();
 
 app.MapPost("/conta", () =>
 {
-     return new ContaController().Post();
+     return new ContaController().Post(new CriacaoContaCommand("ABC-12345"));
 })
 .WithName("PostConta")
 .WithOpenApi();
@@ -30,9 +31,9 @@ app.Run();
 
 public class ContaController
 {
-    public async Task<Conta> Post()
+    public async Task<Conta> Post(CriacaoContaCommand command)
     {
         ContaCreateHandler handler = new ContaCreateHandler();
-        return await handler.Handle();
+        return await handler.Handle(command);
     }
 }

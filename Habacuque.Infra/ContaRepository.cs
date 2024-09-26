@@ -7,7 +7,7 @@ public class ContaRepository
     public async Task<Conta> Add(Conta conta)
     {
         conta.AlterarId();
-        return conta;
+        return await Task.FromResult(conta);
     }
 
     public async Task<Conta> Find(int id)
@@ -19,6 +19,6 @@ public class ContaRepository
     {
         Conta alterada = new Conta(conta.Numero);
         alterada.AlterarId();
-        return alterada;
+        return await Task.FromResult(alterada);
     }
 }

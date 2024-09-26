@@ -1,3 +1,5 @@
+using AutoFixture;
+using AutoFixture.AutoMoq;
 using FluentAssertions;
 using Habacuque.Domain;
 using Habacuque.Infra;

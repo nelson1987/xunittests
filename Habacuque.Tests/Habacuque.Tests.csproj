@@ -20,6 +20,9 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Using Include="AutoFixture" />
+    <Using Include="AutoFixture.AutoMoq" />
+    <Using Include="FluentAssertions" />
   </ItemGroup>
 
   <ItemGroup>

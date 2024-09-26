@@ -1,5 +1,5 @@
-using FluentAssertions;
 using Habacuque.Application;
+using Habacuque.Application.Features.Contas;
 using Habacuque.Domain;
 using Habacuque.Infra;
 
@@ -9,8 +9,10 @@ public class ContaCreateHandlerUnitTest
 {
     private readonly IFixture _fixture = new Fixture().Customize(new AutoMoqCustomization { ConfigureMembers = true });
     private readonly ContaCreateHandler _sut;
+    private readonly CriacaoContaCommand _command;
     public ContaCreateHandlerUnitTest()
     {
+        _command = _fixture.Create<CriacaoContaCommand>();
         _sut = _fixture.Build<ContaCreateHandler>()
             .OmitAutoProperties()
             .Create();        
@@ -19,7 +21,7 @@ public class ContaCreateHandlerUnitTest
     [Fact]
     public async Task Handle_ContaComDadosCorreto_RetornaId()
     {
-        Conta poupanca = await _sut.Handle();
+        Conta poupanca = await _sut.Handle(_command);
         //
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(1);
@@ -30,7 +32,7 @@ public class ContaUpdateHandlerUnitTest
 {
     private readonly IFixture _fixture = new Fixture().Customize(new AutoMoqCustomization { ConfigureMembers = true });
     private readonly ContaUpdateHandler _sut;
-    public ContaCreateHandlerUnitTest()
+    public ContaUpdateHandlerUnitTest()
     {
         _sut = _fixture.Build<ContaUpdateHandler>()
             .OmitAutoProperties()
