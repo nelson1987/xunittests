@@ -10,13 +10,15 @@ public class ContaRepository
         return conta;
     }
 
-    public async Task<Conta> Find(Conta conta)
+    public async Task<Conta> Find(int id)
     {
-        return conta;
+        return await Task.FromResult(new Conta(id, string.Empty));
     }
 
     public async Task<Conta> Update(Conta conta)
     {
-        return conta;
+        Conta alterada = new Conta(conta.Numero);
+        alterada.AlterarId();
+        return alterada;
     }
 }

@@ -1,6 +1,7 @@
 using FluentAssertions;
 using Habacuque.Application;
 using Habacuque.Domain;
+using Habacuque.Infra;
 
 namespace Habacuque.Tests;
 
@@ -42,6 +43,20 @@ public class ContaUpdateHandlerUnitTest
         Conta poupanca = await _sut.Handle();
         //
         poupanca.Should().NotBeNull();
-        poupanca.Id.Should().Be(0);
+        poupanca.Id.Should().Be(1);
+    }
+}
+public class ContaFindHandlerUnitTest
+{
+    [Fact]
+    public async Task Handle_ContaComDadosCorreto_RetornaId()
+    {
+        Conta poupanca = new Conta(0, "1234");
+        poupanca = await new ContaRepository().Add(poupanca);
+        Conta poupancabuscada = await new ContaQueryHandler().Handle(poupanca.Id);
+        
+        poupancabuscada.Should().NotBeNull();
+        poupancabuscada.Id.Should().Be(poupanca.Id);
+        poupancabuscada.Id.Should().Be(1);
     }
 }

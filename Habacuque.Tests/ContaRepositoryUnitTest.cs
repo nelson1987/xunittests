@@ -25,6 +25,7 @@ public class ContaRepositoryUnitTest
         
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(1);
+        poupanca.Numero.Should().Be("1234");
     }
 
     [Fact]
@@ -43,9 +44,10 @@ public class ContaRepositoryUnitTest
     {
         Conta poupanca = new Conta(1, "1234");
 
-        poupanca = await _sut.Find(poupanca);
+        poupanca = await _sut.Find(poupanca.Id);
         
         poupanca.Should().NotBeNull();
         poupanca.Id.Should().Be(1);
+        poupanca.Numero.Should().Be("1234");
     }
 }

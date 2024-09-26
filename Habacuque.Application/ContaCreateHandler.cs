@@ -22,3 +22,10 @@ public class ContaUpdateHandler
         return poupanca;
     }
 }
+public class ContaQueryHandler
+{
+    public async Task<Conta> Handle(int id)
+    {
+        return await new ContaRepository().Find(id);
+    }
+}

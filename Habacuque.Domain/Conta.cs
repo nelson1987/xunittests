@@ -2,6 +2,11 @@
 
 public class Conta
 {
+    public Conta(string numero)
+    {
+        Numero = numero;
+    }
+
     public Conta(int id, string numero)
     {
         Id = id;
