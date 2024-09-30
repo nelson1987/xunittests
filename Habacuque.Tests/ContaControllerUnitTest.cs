@@ -1,3 +1,4 @@
+using Habacuque.Api.Controllers;
 using Habacuque.Application.Features.Contas;
 using Habacuque.Domain;
 
@@ -8,6 +9,7 @@ public class ContaControllerUnitTest
     private readonly IFixture _fixture = new Fixture().Customize(new AutoMoqCustomization { ConfigureMembers = true });
     private readonly ContaController _sut;
     private readonly CriacaoContaCommand _command;
+
     public ContaControllerUnitTest()
     {
         _command = _fixture.Create<CriacaoContaCommand>();

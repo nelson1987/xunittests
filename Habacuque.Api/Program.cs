@@ -1,10 +1,8 @@
-using Habacuque.Application;
-using Habacuque.Application.Features.Contas;
-using Habacuque.Domain;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -20,20 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/conta", () =>
-{
-     return new ContaController().Post(new CriacaoContaCommand("ABC-12345"));
-})
-.WithName("PostConta")
-.WithOpenApi();
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
-
-public class ContaController
-{
-    public async Task<Conta> Post(CriacaoContaCommand command)
-    {
-        ContaCreateHandler handler = new ContaCreateHandler();
-        return await handler.Handle(command);
-    }
-}
